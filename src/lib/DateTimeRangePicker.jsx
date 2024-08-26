@@ -426,6 +426,7 @@ class DateTimeRangePicker extends React.Component {
 
   renderStartDate(local) {
     let label = (local && local.fromDate) ? local.fromDate : "From Date";
+
     return (
       <DatePicker
         label={label}
@@ -445,6 +446,7 @@ class DateTimeRangePicker extends React.Component {
         changeSelectingModeCallback={this.changeSelectingModeCallback}
         applyCallback={this.applyCallback}
         maxDate={this.props.maxDate}
+        minDate={this.props.minDate}
         local={this.props.local}
         descendingYears={this.props.descendingYears}
         years={this.props.years}
@@ -479,6 +481,7 @@ class DateTimeRangePicker extends React.Component {
         selectingModeFrom={this.state.selectingModeFrom}
         changeSelectingModeCallback={this.changeSelectingModeCallback}
         applyCallback={this.applyCallback}
+        minDate={this.props.minDate}
         maxDate={this.props.maxDate}
         local={this.props.local}
         descendingYears={this.props.descendingYears}
@@ -523,6 +526,7 @@ DateTimeRangePicker.propTypes = {
   rangeCallback: PropTypes.func,
   autoApply: PropTypes.bool,
   maxDate: momentPropTypes.momentObj,
+  minDate: momentPropTypes.momentObj,
   descendingYears: PropTypes.bool,
   years: PropTypes.array,
   pastSearchFriendly: PropTypes.bool,

@@ -171,6 +171,7 @@ class Calendar extends React.Component {
           mode={this.props.mode}
           otherDate={this.props.otherDate}
           maxDate={this.props.maxDate}
+          minDate={this.props.minDate}
           month={this.state.month}
           year={this.state.year}
           dateSelectedNoTimeCallback={this.props.dateSelectedNoTimeCallback}
@@ -192,6 +193,7 @@ Calendar.propTypes = {
   mode: PropTypes.string.isRequired,
   otherDate: momentPropTypes.momentObj,
   maxDate: momentPropTypes.momentObj,
+  minDate: momentPropTypes.momentObj,
   dateSelectedNoTimeCallback: PropTypes.func.isRequired,
   keyboardCellCallback: PropTypes.func.isRequired,
   focusOnCallback: PropTypes.func.isRequired,

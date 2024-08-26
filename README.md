@@ -117,6 +117,9 @@ func applyCallback(startDate, endDate){
 **maxDate (optional)** {Moment Object} <br>
 Maximum date that can be selected. 
 
+**minDate (optional)** {Moment Object} <br>
+Min date that can be selected. 
+
 **rangeCallback (optional)** {React.func} <br>
 ```js
 func rangeCallback(index, value) {

@@ -182,7 +182,7 @@ class ApplyCancelButtons extends React.Component {
     }
     return (
       <div id="buttonContainer" className="buttonContainer" style={style}>
-        {maxDateBox}
+        {/* {maxDateBox} */}
         {buttons}
       </div>
     );

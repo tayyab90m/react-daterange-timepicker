@@ -18,6 +18,7 @@ class CalendarRow extends React.Component {
           date={this.props.date}
           otherDate={this.props.otherDate}
           maxDate={this.props.maxDate}
+          minDate={this.props.minDate}
           month={this.props.month}
           year={this.props.year}
           dateSelectedNoTimeCallback={this.props.dateSelectedNoTimeCallback}
@@ -48,6 +49,7 @@ CalendarRow.propTypes = {
   date: momentPropTypes.momentObj.isRequired,
   otherDate: momentPropTypes.momentObj,
   maxDate: momentPropTypes.momentObj,
+  minDate: momentPropTypes.momentObj,
   dateSelectedNoTimeCallback: PropTypes.func.isRequired,
   keyboardCellCallback: PropTypes.func.isRequired,
   focusOnCallback: PropTypes.func.isRequired,

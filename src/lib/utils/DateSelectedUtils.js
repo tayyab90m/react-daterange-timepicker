@@ -66,3 +66,16 @@ export const pastMaxDate = (currentDate, maxDate, minuteMode) => {
   }
   return false;
 };
+
+export const beforeMinDate = (currentDate, minDate, minuteMode) => {
+  if (!minDate) {
+    return false;
+  }
+  if (minuteMode && minDate && currentDate.isBefore(minDate, 'seconds')) {
+    return true;
+  }
+  if (minDate && currentDate.isBefore(minDate, 'day')) {
+    return true;
+  }
+  return false;
+};

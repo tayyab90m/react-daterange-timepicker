@@ -15,7 +15,7 @@ import {
   isInbetweenDates,
 } from '../utils/TimeFunctionUtils';
 import { addFocusStyle } from '../utils/StyleUtils';
-import { pastMaxDate } from '../utils/DateSelectedUtils';
+import { pastMaxDate, beforeMinDate } from '../utils/DateSelectedUtils';
 import { getCalendarGridCellClassName } from '../utils/CssClassNameHelper';
 import { ModeEnum } from '../DateTimeRangePicker';
 
@@ -114,6 +114,9 @@ class Cell extends React.Component {
     if (pastMaxDate(this.props.cellDay, this.props.maxDate, false)) {
       return;
     }
+    if(beforeMinDate(this.props.cellDay, this.props.minDate,false)){
+      return;
+    }
     this.props.dateSelectedNoTimeCallback(this.props.cellDay, this.props.mode);
   }
 
@@ -121,6 +124,10 @@ class Cell extends React.Component {
     // If Past Max Date Style Cell Out of Use
     if (this.checkAndSetMaxDateStyle(this.props.cellDay)) {
       return;
+    }
+    //if past min Date style cell out of use
+    if(this.checkAndSetMinDateStyle(this.props.cellDay)){
+      return
     }
     // If smart mode disabled check cell dates to ensure not past end in start mode and not before start in end mode
     if (!this.props.smartMode && this.nonSmartModePastStartAndEndChecks(this.props.cellDay)) {
@@ -181,7 +188,16 @@ class Cell extends React.Component {
       return true;
     }
     return false;
-  }
+  };
+
+  checkAndSetMinDateStyle(cellDate) {
+    // If Past Min Date Style Cell Out of Use
+    if (beforeMinDate(cellDate, this.props.minDate, false)) {
+      this.setState({ style: invalidStyle(this.props.darkMode) });
+      return true;
+    }
+    return false;
+  };
 
   nonSmartModePastStartAndEndChecks(cellDate) {
     // If in start mode and cellDate past end date style as unavailable. If in end mode and cellDate before start date style as unavailable
@@ -211,6 +227,10 @@ class Cell extends React.Component {
     // If Past Max Date Style Cell Out of Use
     if (this.checkAndSetMaxDateStyle(cellDay)) {
       return;
+    }
+    // If Past Min Date Style Cell Out of Use
+    if(this.checkAndSetMinDateStyle(cellDay)){
+      return
     }
 
     // If smart mode disabled check cell dates to ensure not past end in start mode and not before start in end mode

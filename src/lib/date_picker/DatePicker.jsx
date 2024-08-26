@@ -54,6 +54,7 @@ class DatePicker extends React.Component {
           mode={this.props.mode}
           otherDate={this.props.otherDate}
           maxDate={this.props.maxDate}
+          minDate={this.props.minDate}
           dateSelectedNoTimeCallback={this.props.dateSelectedNoTimeCallback}
           keyboardCellCallback={this.props.keyboardCellCallback}
           focusOnCallback={this.props.focusOnCallback}
@@ -86,6 +87,7 @@ DatePicker.propTypes = {
   otherDate: momentPropTypes.momentObj,
   mode: PropTypes.string.isRequired,
   maxDate: momentPropTypes.momentObj,
+  minDate: momentPropTypes.momentObj,
   applyCallback: PropTypes.func.isRequired,
   dateSelectedNoTimeCallback: PropTypes.func.isRequired,
   keyboardCellCallback: PropTypes.func.isRequired,
@@ -109,6 +111,6 @@ DatePicker.propTypes = {
   style: PropTypes.object,
   darkMode: PropTypes.bool,
   standalone: PropTypes.bool,
-  twelveHoursClock: PropTypes.bool
+  twelveHoursClock: PropTypes.bool,
 };
 export default DatePicker;
